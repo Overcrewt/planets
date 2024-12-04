@@ -72,8 +72,8 @@
             x:Name="imgVenus"
             Opacity="0"
             Source="venus.png"
-            VerticalOptions="Center"
-            HorizontalOptions="End"
+            VerticalOptions="Start"
+            HorizontalOptions="Center"
             TranslationX="84"
             TranslationY="208"
             WidthRequest="76"
@@ -98,8 +98,8 @@
             HorizontalOptions="End"
             TranslationX="100"
             TranslationY="-72"
-            WidthRequest="300"
-            HeightRequest="300"/>
+            WidthRequest="200"
+            HeightRequest="200"/>
         
         <!--Intro Box-->
         <Border

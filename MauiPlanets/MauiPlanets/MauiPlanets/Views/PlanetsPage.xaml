@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Views.PlanetsPage"
+             Title="PlanetsPage">
+
+    <Grid
+        IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
+        
+        <!--Menu Grid-->
+        <Grid
+            x:Name="MenuContainer"
+            IgnoreSafeArea="{OnPlatform Android=False, iOS=True}">
+
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#666666" Offset="0.0" />
+                    <GradientStop Color="#000000" Offset="1.0" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GridArea_Tapped" />
+            </Grid.GestureRecognizers>
+
+            <VerticalStackLayout
+                Margin="0,52,24,0"
+                HorizontalOptions="End"
+                Spacing="20">
+
+                <Label 
+                    Text="MENU"
+                    Style="{StaticResource PageHeaderStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 1 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 2 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 3 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 4 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 5 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+                <Label 
+                    Text="Option 6 (with icon)"
+                    Style="{StaticResource PageHeaderSubtitleStyle}"
+                    HorizontalOptions="End"/>
+
+            </VerticalStackLayout>
+        </Grid>
+        
+        <!--Main content-->
+
+        <Grid
+            x:Name="MainContentGrid"
+            Padding="24, 52, 24, 0"
+            IgnoreSafeArea="{OnPlatform Android=False, iOS=True}"
+            BackgroundColor="{StaticResource PageBackgroundColor}"
+            ColumnDefinitions="*,Auto"
+            RowDefinitions="Auto,*">
+            
+        </Grid>
+        
+    </Grid>
+</ContentPage>

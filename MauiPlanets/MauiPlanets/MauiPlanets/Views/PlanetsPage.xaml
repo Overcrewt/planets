@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:MauiPlanets.Models"
              x:Class="Views.PlanetsPage"
              Title="PlanetsPage">
 
@@ -186,10 +187,117 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <CollectionView>
-                        
+                    <CollectionView
+                        x:Name="lstPopularPlanets"
+                        HeightRequest="280"
+                        selectionMode="Single"
+                        selectionChanged="Planets_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate
+                                x:DataType="models:Planet">
+                                <Border
+                                    VerticalOptions="Fill"
+                                    WidthRequest="220"
+                                    StrokeThickness="{Binding Background}"
+                                    Padding="20">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="24" />
+                                    </Border.StrokeShape>
+
+                                    <Grid
+                                        RowDefinitions="*,auto,auto"
+                                        RowSpacing="4">
+                                        <Image
+                                            Grid.Row="0"
+                                            Source="{Binding HeroImage}"
+                                            Rotation="-30"
+                                            Aspect="AspectFill"
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill">
+                                        </Image>
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Text="{Binding Name}"
+                                            Style="{StaticResource FeaturedPlanetHeaderStyle}"
+                                            Margin="0,8,0,0"/>
+
+                                        <Label
+                                            Grid.Row="2"
+                                            Text="{Binding Subtitle}"
+                                            Style="{StaticResource FeaturedPlanetSubHeaderStyle}"/>
+
+                                    </Grid>
+                                      
+                                    
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
                     </CollectionView>
-                    
+    
+                    <!--More Sections-->
+
+                    <Label
+                        Style="{StaticResource PageSubHeaderStyle}"
+                        Margin="0,12,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="You may also like   " />
+                                <Span Text="→" FontSize="20" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <CollectionView
+                        x:Name="lstAllPlanets"
+                        HeightRequest="160"
+                        SelectionMode="Single"
+                        SelectionChanged="Planets_SelectionChanged">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="16" />
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate
+                                x:DataType="models:Planet">
+                                <Border
+                                    VerticalOptions="Fill"
+                                    WidthRequest="140"
+                                    StrokeThickness="0"
+                                    Background="{Binding Background}"
+                                    Padding="16">
+
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="16" />
+                                    </Border.StrokeShape>
+
+                                    <Grid
+                                        RowDefinitions="*,auto,auto"
+                                        RowSpacing="4">
+                                        <Image
+                                            Grid.Row="0"
+                                            Source="{Binding HeroImage}"
+                                            Rotation="-30"
+                                            Aspect="AspectFit"
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill">
+                                        </Image>
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Text="{Binding Name}"
+                                            Style="{StaticResource AllPlanetHeaderSubtitleStyle}"
+                                            Margin="0,4,0,0"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
                 </VerticalStackLayout>
                 
             </ScrollView>

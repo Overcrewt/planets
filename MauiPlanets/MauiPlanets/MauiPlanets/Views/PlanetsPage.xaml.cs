@@ -1,3 +1,5 @@
+using MauiPlanets.Models;
+
 namespace Views;
 
 public partial class PlanetsPage : ContentPage
@@ -26,4 +28,9 @@ public partial class PlanetsPage : ContentPage
 		await MainContentGrid.ScaleTo(0.8, AnimationDuration);
 		_ = MainContentGrid.ScaleTo(0.8, AnimationDuration);
 	}
+
+	async void Planets_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
+    {
+      await Navigation.PushAsync(new PlanetDetailsPage(e.CurrentSelection.First() as Planet));
+    }
 }
